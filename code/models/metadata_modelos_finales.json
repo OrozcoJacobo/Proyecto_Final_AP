@@ -1,0 +1,69 @@
+{
+    "descripcion": "Modelos finales para sistema conservador de apoyo a inversión en ETF VOO.",
+    "modelo_principal": {
+        "archivo": "modelo_principal_gradient_boosting_20d.joblib",
+        "modelo": "gradient_boosting",
+        "horizonte_dias": 20,
+        "umbral_decision": 0.725,
+        "umbral_retorno_objetivo": 0.02,
+        "parametros": {
+            "n_estimators": 100,
+            "learning_rate": 0.03,
+            "max_depth": 2,
+            "min_samples_leaf": 10
+        }
+    },
+    "modelo_apoyo": {
+        "archivo": "modelo_apoyo_gradient_boosting_15d.joblib",
+        "modelo": "gradient_boosting",
+        "horizonte_dias": 15,
+        "umbral_decision": 0.775,
+        "umbral_retorno_objetivo": 0.015,
+        "parametros": {
+            "n_estimators": 150,
+            "learning_rate": 0.05,
+            "max_depth": 2,
+            "min_samples_leaf": 20
+        }
+    },
+    "columnas_predictoras": [
+        "cambio_porcentual",
+        "retorno_diario",
+        "retorno_logaritmico",
+        "retorno_3d",
+        "retorno_5d",
+        "retorno_10d",
+        "retorno_20d",
+        "rango_diario",
+        "cambio_apertura_cierre",
+        "posicion_cierre_rango",
+        "distancia_media_movil_20d",
+        "distancia_media_movil_50d",
+        "distancia_media_movil_100d",
+        "volatilidad_5d",
+        "volatilidad_10d",
+        "volatilidad_20d",
+        "momentum_5d",
+        "momentum_10d",
+        "momentum_20d",
+        "distancia_maximo_20d",
+        "distancia_minimo_20d",
+        "distancia_maximo_50d",
+        "distancia_minimo_50d",
+        "distancia_maximo_100d",
+        "distancia_minimo_100d",
+        "cambio_volumen",
+        "ratio_volumen_5d",
+        "ratio_volumen_10d",
+        "ratio_volumen_20d"
+    ],
+    "rango_fechas_dataset": {
+        "fecha_minima": "2011-01-03",
+        "fecha_maxima": "2026-04-24"
+    },
+    "politica_decision": {
+        "enfoque": "conservador",
+        "prioridad": "reducir falsos positivos en señales positivas de inversión",
+        "advertencia": "Sistema académico de apoyo a decisión. No constituye asesoría financiera."
+    }
+}
